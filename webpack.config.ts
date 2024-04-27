@@ -1,33 +1,25 @@
 import webpack from "webpack";
 import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import {buildWebpackConfig} from "./config/build/buildWebpackConfig";
+import {BuildPaths, BuiltEnv} from "./config/build/types/config";
 
-const config: webpack.Configuration = {
-    mode: 'development',
-    entry: path.resolve(__dirname, 'src', 'index.ts'),
-    output: {
-        filename: "[name].[contenthash].bundle.js",
-        path: path.resolve(__dirname, 'build'),
-        clean: true
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'public', 'index.html')
-        }),
-        new webpack.ProgressPlugin()
-    ],
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+export default (env: BuiltEnv) => {
+    const paths: BuildPaths = {
+        entry: path.resolve(__dirname, 'src', 'index.tsx'),
+        build: path.resolve(__dirname, 'build'),
+        html: path.resolve(__dirname, 'public', 'index.html')
     }
+
+    const mode = env.mode || 'development'
+    const port = env.port || 3000
+    console.log(mode)
+    const isDev = mode === 'development'
+
+    const config: webpack.Configuration = buildWebpackConfig({mode, paths, isDev, port})
+
+    return config
 }
 
-export default config
+//"start": "cross-env mode=development webpack serve",
+//     "build:prod": "cross-env mode=production webpack",
+//     "build:dev": "cross-env mode=development webpack",

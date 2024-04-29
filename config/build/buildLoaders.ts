@@ -24,6 +24,18 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                 },
                 'sass-loader'
             ]
+        },
+        {
+           test: /\.svg$/,
+           use: ['@svgr/webpack']
+        },
+        {
+            test: /\.(png|jpe?g|gif|wolf2|wolf)$/i,
+            use: [
+                {
+                    loader: 'file-loader'
+                }
+            ]
         }
     ]
 }

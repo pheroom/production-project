@@ -4,11 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -32,6 +28,7 @@ module.exports = {
         'no-unused-vars': 'off',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
+        'arrow-body-style': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/function-component-definition': 'off',
         'no-shadow': 'off',
@@ -41,15 +38,15 @@ module.exports = {
         'react/button-has-type': 'off',
         'react/self-closing-comp': 'warn',
         'no-trailing-spaces': 'warn',
-        'arrow-body-style': 'warn',
         'i18next/no-literal-string': [
             'warn',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid'],
+                ignoreAttribute: ['data-testid', 'to'],
             },
         ],
         'max-len': ['error', { code: 120, ignoreComments: true }],
+        'object-curly-newline': 'off',
     },
     globals: {
         __IS_DEV__: true,

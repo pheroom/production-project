@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import LangSwitcher from 'widgets/LangSwitcher/ui/LangSwitcher';
-import Button from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
+import { LangSwitcher } from 'widgets/LangSwitcher';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps{
     className?: string
 }
 
-const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
     const onToggle = () => {
@@ -26,5 +26,3 @@ const Sidebar = ({ className }: SidebarProps) => {
         </div>
     );
 };
-
-export default Sidebar;

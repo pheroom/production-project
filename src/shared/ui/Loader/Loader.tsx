@@ -6,8 +6,6 @@ interface LoaderProps{
     className?: string
 }
 
-const Loader: FC<LoaderProps> = ({ className }) => (
+export const Loader: FC<LoaderProps> = ({ className }) => (
     <span className={classNames(cls.Loader, {}, [className])} />
 );
-
-export default Loader;

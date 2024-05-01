@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeButton, Button } from './Button';
+import { ButtonTheme, Button } from './Button';
 
 const meta = {
     title: 'shared/Button',
@@ -13,13 +13,13 @@ type Story = StoryObj<typeof meta>;
 
 export const ClearedLight: Story = {
     args: {
-        theme: ThemeButton.CLEAR,
+        theme: ButtonTheme.CLEAR,
         children: 'text',
     },
 };
 export const ClearedDark: Story = {
     args: {
-        theme: ThemeButton.CLEAR,
+        theme: ButtonTheme.CLEAR,
         children: 'text',
     },
     decorators: [
@@ -29,13 +29,13 @@ export const ClearedDark: Story = {
 
 export const OutlineLight: Story = {
     args: {
-        theme: ThemeButton.OUTLINE,
+        theme: ButtonTheme.OUTLINE,
         children: 'text',
     },
 };
 export const OutlineDark: Story = {
     args: {
-        theme: ThemeButton.OUTLINE,
+        theme: ButtonTheme.OUTLINE,
         children: 'text',
     },
     decorators: [

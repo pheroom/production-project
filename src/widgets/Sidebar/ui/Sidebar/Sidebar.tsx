@@ -1,9 +1,7 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { Link } from 'react-router-dom';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import UserIcon from 'shared/assets/icons/user_circle.svg';
 import ArticleIcon from 'shared/assets/icons/article_box.svg';
 import FriendIcon from 'shared/assets/icons/friend.svg';

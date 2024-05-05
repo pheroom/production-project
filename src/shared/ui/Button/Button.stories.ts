@@ -6,20 +6,26 @@ import { ButtonTheme, Button } from './Button';
 const meta = {
     title: 'shared/Button',
     component: Button,
+    parameters: {
+        layout: 'centered',
+    },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ClearedLight: Story = {
+export const AccentLight: Story = {
     args: {
-        theme: ButtonTheme.CLEAR,
+        theme: ButtonTheme.ACCENT,
         children: 'text',
     },
+    parameters: {
+        layout: 'centered',
+    },
 };
-export const ClearedDark: Story = {
+export const AccentDark: Story = {
     args: {
-        theme: ButtonTheme.CLEAR,
+        theme: ButtonTheme.ACCENT,
         children: 'text',
     },
     decorators: [
@@ -27,15 +33,15 @@ export const ClearedDark: Story = {
     ],
 };
 
-export const OutlineLight: Story = {
+export const PositiveLight: Story = {
     args: {
-        theme: ButtonTheme.OUTLINE,
+        theme: ButtonTheme.POSITIVE,
         children: 'text',
     },
 };
-export const OutlineDark: Story = {
+export const PositiveDark: Story = {
     args: {
-        theme: ButtonTheme.OUTLINE,
+        theme: ButtonTheme.POSITIVE,
         children: 'text',
     },
     decorators: [

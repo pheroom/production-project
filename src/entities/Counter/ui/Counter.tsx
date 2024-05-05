@@ -15,9 +15,9 @@ export const Counter: FC<CounterProps> = () => {
         <div>
             <h1>{value}</h1>
             <br />
-            <Button square size={ButtonSize.XL} onClick={() => dispatch(counterActions.increment())}>+</Button>
+            <Button onClick={() => dispatch(counterActions.increment())}>+</Button>
             <br />
-            <Button square size={ButtonSize.XL} onClick={() => dispatch(counterActions.decrement())}>-</Button>
+            <Button onClick={() => dispatch(counterActions.decrement())}>-</Button>
         </div>
     );
 };

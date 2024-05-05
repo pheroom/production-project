@@ -1,14 +1,31 @@
 .LoginForm {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    align-items: center;
+    justify-content: space-between;
+    width: 272px;
+}
+
+.sep {
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+    align-self: stretch;
 }
 
 .input {
-    margin-top: 10px;
+    align-self: stretch;
+    margin-bottom: 12px;
 }
 
 .loginBtn {
-    margin-top: 10px;
-    margin-left: auto;
+    align-self: stretch;
+}
+
+.title {
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--theme-color);
+    margin-top: 16px;
+    margin-bottom: 20px;
+    font-weight: 500;
 }

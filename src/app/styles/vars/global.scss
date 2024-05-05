@@ -1,5 +1,8 @@
 :root {
-    --font-family-main: consolas, "Times New Roman", serif;
+    --font-family-main: -apple-system, system-ui, "Helvetica Neue", roboto, sans-serif;
+    --font-size-s: 14px;
+    --font-line-s: 20px;
+    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
     --font-size-m: 16px;
     --font-line-m: 24px;
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
@@ -9,11 +12,16 @@
     --font-size-xl: 32px;
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
-    --navbar-haight: 50px;
-    --sidebar-width: 300px;
-    --sidebar-width-collapsed: 80px;
     --modal-z-index: 10;
     --overlay-color: rgba(0 0 0 / 40%);
     --red-light: #ff2626;
     --red-dark: #a60000;
+    --global-primary-color: #71aaeb;
+    --green-color-light: #52b652;
+    --green-color-dark: #4bb34b;
+    --navbar-haight: 49px;
+    --sidebar-width: 164px;
+    --layout-width: 1076px;
+    --sidebar-width-collapsed: 80px;
+    --border-radius: 8px;
 }

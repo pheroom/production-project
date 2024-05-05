@@ -1,0 +1,23 @@
+.LinkWithIcon {
+    padding: 0 6px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 4px;
+
+    &:hover {
+        background: var(--border-secondary);
+    }
+
+    svg {
+        margin-right: 10px;
+    }
+
+    span {
+        font-size: 13px;
+        line-height: 20px;
+        color: var(--theme-color);
+    }
+}

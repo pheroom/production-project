@@ -6,15 +6,19 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
     className?: string
     value?: string
     onChange?: (value: string) => void
+    classNameBox?: string
+    fullWidth?: boolean
 }
 
-export const Input = memo(({ className, value, onChange, type = 'text', ...args }: InputProps) => {
+export const Input = memo((
+    { className, value, onChange, classNameBox, fullWidth = true, type = 'text', ...args }: InputProps,
+) => {
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
 
     return (
-        <div>
+        <div className={classNames(cls.Box, { [cls.fullWidth]: fullWidth }, [classNameBox])}>
             <input
                 onChange={onChangeHandler}
                 value={value}

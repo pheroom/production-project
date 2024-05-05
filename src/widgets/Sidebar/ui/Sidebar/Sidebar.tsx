@@ -1,36 +1,41 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+import { Link } from 'react-router-dom';
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import UserIcon from 'shared/assets/icons/user_circle.svg';
+import ArticleIcon from 'shared/assets/icons/article_box.svg';
+import FriendIcon from 'shared/assets/icons/friend.svg';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
+import { LinkWithIcon } from 'widgets/Sidebar/ui/LinkWithIcon/LinkWithIcon';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps{
     className?: string
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+type ILinkData = [ReactElement, string, string]
 
-    const onToggle = () => {
-        setCollapsed((prev) => !prev);
-    };
+const LinksForAuthUser: ILinkData[] = [
+    [<UserIcon />, 'Моя страница', '/about'],
+    [<ArticleIcon />, 'Статьи', '/'],
+    [<FriendIcon />, 'Друзья', '/'],
+];
+const LinksForNotAuthUser: ILinkData[] = [[<ArticleIcon />, 'Статьи', '/about']];
+
+export const Sidebar = ({ className }: SidebarProps) => {
+    const authData = useSelector(getUserAuthData);
 
     return (
-        <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <Button
-                className={cls.collapsedBtn}
-                data-testid="sidebar-toggle"
-                onClick={onToggle}
-                square
-                size={ButtonSize.L}
-                theme={ButtonTheme.BACKGROUND_INVERTED}
-            >
-                {collapsed ? '>' : '<'}
-            </Button>
+        <div data-testid="sidebar" className={classNames(cls.Sidebar, {}, [className])}>
             <div className={cls.switchers}>
+                {(authData ? LinksForAuthUser : LinksForNotAuthUser).map(([icon, text, to]: ILinkData) => (
+                    <LinkWithIcon icon={icon} to={to} text={text} />
+                ))}
                 <ThemeSwitcher />
-                <LangSwitcher short={collapsed} />
+                <LangSwitcher />
             </div>
         </div>
     );

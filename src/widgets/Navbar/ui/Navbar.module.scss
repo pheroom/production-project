@@ -1,10 +1,14 @@
 .Navbar {
+    background: var(--bg-color-content);
+    border-bottom: 1px solid var(--border-secondary);
+}
+
+.inner {
+    height: calc(var(--navbar-haight) - 1px);
     width: 100%;
-    height: var(--navbar-haight);
-    background: var(--inverted-bg-color);
     display: flex;
     align-items: center;
-    padding: 20px;
+    justify-content: space-between;
 }
 
 .links {
@@ -13,4 +17,8 @@
 
 .mainLink {
     margin-right: 15px;
+}
+
+.logo {
+    height: 100%;
 }

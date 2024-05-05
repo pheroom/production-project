@@ -1,11 +1,12 @@
 import React, { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import Logo from 'shared/assets/icons/big-logo.svg';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -45,13 +46,38 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title="Login Form" />
+                <Logo />
+                <p className={cls.title}>Вход ВКонтакте</p>
                 {error && <Text text="Неверный логин или пароль" theme={TextTheme.ERROR} />}
-                <Input value={username} onChange={onChangeUsername} autoFocus type="text" className={cls.input} />
-                <Input value={password} onChange={onChangePassword} type="text" className={cls.input} />
-                <Button disabled={isLoading} onClick={loginClick} theme={ButtonTheme.OUTLINE} className={cls.loginBtn}>
-                    {t('sign in')}
+                <Input
+                    placeholder="Имя аккаунта"
+                    value={username}
+                    onChange={onChangeUsername}
+                    autoFocus
+                    type="text"
+                    classNameBox={cls.input}
+                />
+                <Input
+                    placeholder="Пароль"
+                    value={password}
+                    onChange={onChangePassword}
+                    type="text"
+                    classNameBox={cls.input}
+                />
+                <Button disabled={isLoading} size={ButtonSize.L} onClick={loginClick} className={cls.loginBtn}>
+                    {t('Sign on')}
                 </Button>
+                <div className={cls.sep} />
+                <Button
+                    disabled={isLoading}
+                    theme={ButtonTheme.POSITIVE}
+                    size={ButtonSize.L}
+                    onClick={loginClick}
+                    className={cls.loginBtn}
+                >
+                    {t('Sign in')}
+                </Button>
+
             </div>
         </DynamicModuleLoader>
     );

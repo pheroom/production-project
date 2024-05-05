@@ -1,4 +1,4 @@
-name: linting, testing, building
+name: Error checking using linting, testing, building
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  pipeline:
+  error-checking:
     runs-on: ubuntu-latest
     strategy:
       matrix:

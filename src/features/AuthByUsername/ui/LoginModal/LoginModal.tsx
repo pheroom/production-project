@@ -3,7 +3,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
-import cls from './LoginModal.module.scss';
 
 interface LoginModalProps{
     className?: string
@@ -13,7 +12,7 @@ interface LoginModalProps{
 
 export const LoginModal: FC<LoginModalProps> = ({ className, onClose, isOpen }) => {
     return (
-        <Modal lazy onClose={onClose} isOpen={isOpen} className={classNames(cls.LoginModal, {}, [className])}>
+        <Modal lazy onClose={onClose} isOpen={isOpen} className={classNames('', {}, [className])}>
             <Suspense fallback={<Loader />}>
                 <LoginFormAsync />
             </Suspense>

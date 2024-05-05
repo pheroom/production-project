@@ -8,9 +8,9 @@ const MainPage = () => {
 
     return (
         <div>
-            {t('main')}
-            <br />
+            <h1>{t('main')}</h1>
             <Counter />
+            <br />
             <BugButton />
         </div>
     );

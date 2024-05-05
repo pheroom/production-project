@@ -18,7 +18,7 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
 
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
-            <p>{t('Error dfsa')}</p>
+            <p className={cls.title}>{t('Error dfsa')}</p>
             <Button onClick={reloadPage}>{t('reload')}</Button>
         </div>
     );

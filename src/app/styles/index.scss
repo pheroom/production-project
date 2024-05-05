@@ -3,6 +3,12 @@
 @import "themes/light";
 @import "themes/dard";
 
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font: var(--font-m);
     color: var(--primary-color);
@@ -11,9 +17,18 @@ body {
 .app {
     background: var(--bg-color);
     min-height: 100vh;
+    flex-direction: column;
+    position: relative;
 }
 
-.content-page {
+.container {
+    max-width: 100%;
+    width: calc(var(--layout-width) + 30px);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.page-layout {
     display: flex;
 }
 

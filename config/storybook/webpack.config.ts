@@ -26,10 +26,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
         use: ['@svgr/webpack'],
     });
 
-    config.module.rules.push(buildCssLoader({ paths, isDev: true, port: 3000, mode: 'development' }));
+    config.module.rules.push(buildCssLoader({ paths, isDev: true, port: 3000, mode: 'development', apiUrl: '' }));
 
     config.plugins.push(new webpack.DefinePlugin({
         __IS_DEV__: true,
+        __API__: '',
     }));
 
     return config;

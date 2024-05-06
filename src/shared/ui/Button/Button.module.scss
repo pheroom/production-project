@@ -28,6 +28,15 @@
     }
 }
 
+.secondary {
+    background: var(--secondary-bg);
+    color: var(--primary-color);
+
+    &:hover {
+        background: var(--secondary-bg-hover);
+    }
+}
+
 .positive {
     background: var(--green-color-dark);
     color: white;

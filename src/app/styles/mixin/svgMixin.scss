@@ -1,0 +1,7 @@
+@mixin theme-svg-blue {
+    svg {
+        path {
+            fill: var(--blue-color);
+        }
+    }
+}

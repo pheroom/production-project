@@ -4,14 +4,10 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
-import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 
 const App = () => {
     const dispatch = useDispatch();
-    const { theme } = useTheme();
-
-    console.log(theme);
 
     useEffect(() => {
         dispatch(userActions.initAuthData());

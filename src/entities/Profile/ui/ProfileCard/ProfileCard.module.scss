@@ -1,0 +1,56 @@
+.ProfileCard {
+    align-items: center;
+    display: flex;
+    background: var(--bg-color-content);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.main {
+    margin-left: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.avatar {
+    max-height: 150px;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--theme-color);
+}
+
+.status {
+    font-size: 13px;
+    color: var(--theme-color);
+}
+
+.cityBox {
+    display: flex;
+    align-items: center;
+}
+
+.cityText {
+    font-size: 13px;
+    color: var(--grey-color);
+}
+
+.cityIcon {
+    path {
+        fill: var(--grey-color);
+    }
+
+    margin-right: 4px;
+}

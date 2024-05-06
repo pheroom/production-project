@@ -8,7 +8,13 @@
         { "id": "2", "text": "another comment about post 1", "postId": "1" }
     ],
     "profile": {
-        "name": "typicode"
+        "firstname": "yunxiao",
+        "lastname": "li",
+        "birthdate": "12.12.2002",
+        "city": "city",
+        "username":"gugu",
+        "avatar":"https://i.pinimg.com/originals/1b/0d/4b/1b0d4b0af4c5aa99abb76aaf5615c739.jpg",
+        "status": "status jfasj jfa"
     },
     "users": [
         {

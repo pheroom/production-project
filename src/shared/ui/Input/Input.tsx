@@ -18,12 +18,12 @@ export const Input = memo((
     };
 
     return (
-        <div className={classNames(cls.Box, { [cls.fullWidth]: fullWidth }, [classNameBox])}>
+        <div className={classNames(cls.Box, {}, [classNameBox])}>
             <input
                 onChange={onChangeHandler}
                 value={value}
                 type={type}
-                className={classNames(cls.Input, {}, [className])}
+                className={classNames(cls.Input, { [cls.fullWidth]: fullWidth }, [className])}
                 {...args}
             />
         </div>

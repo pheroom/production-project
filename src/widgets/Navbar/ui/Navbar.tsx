@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
@@ -12,13 +11,17 @@ interface NavbarProps {
     className?: string
 }
 
-export function Navbar({ className }: NavbarProps) {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
 
-    const onCloseModal = useCallback(() => {
-        setIsAuthModal((prev) => !prev);
+    const openModal = useCallback(() => {
+        setIsAuthModal(true);
+    }, []);
+
+    const closeModal = useCallback(() => {
+        setIsAuthModal(false);
     }, []);
 
     const onLogout = useCallback(() => {
@@ -42,10 +45,10 @@ export function Navbar({ className }: NavbarProps) {
             <div className="container">
                 <div className={cls.inner}>
                     <Logo className={cls.logo} />
-                    <Button size={ButtonSize.S} onClick={onCloseModal}>Sign on</Button>
-                    <LoginModal onClose={() => setIsAuthModal(false)} isOpen={isAuthModal} />
+                    <Button size={ButtonSize.S} onClick={openModal}>Sign on</Button>
+                    <LoginModal onClose={closeModal} isOpen={isAuthModal} />
                 </div>
             </div>
         </div>
     );
-}
+});

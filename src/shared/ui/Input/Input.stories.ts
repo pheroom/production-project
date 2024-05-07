@@ -9,6 +9,9 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
+    args: {
+        fullWidth: false,
+    },
 } satisfies Meta<typeof Input>;
 
 export default meta;

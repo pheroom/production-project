@@ -7,7 +7,6 @@ import { Sidebar } from './Sidebar';
 const meta = {
     title: 'widgets/sidebar',
     component: Sidebar,
-    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;
@@ -17,5 +16,16 @@ export const Light: Story = {};
 export const Dark: Story = {
     decorators: [
         ThemeDecorator(Theme.DARK),
+    ],
+};
+
+export const AuthLight: Story = {
+    decorators: [
+        StoreDecorator({ user: { authData: {} } }),
+    ],
+};
+export const AuthDark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } }),
     ],
 };

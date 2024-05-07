@@ -55,6 +55,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-console': 'off',
         'no-restricted-syntax': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,

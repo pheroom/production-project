@@ -17,7 +17,7 @@ export const ProfileCard = memo(({ className }: ProfileCardProps) => {
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
 
-    if (isLoading) {
+    if (isLoading || !data) {
         return <div />;
     }
     return (

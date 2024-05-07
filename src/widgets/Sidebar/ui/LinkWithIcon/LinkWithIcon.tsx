@@ -5,7 +5,7 @@ import cls from './LinkWithIcon.module.scss';
 
 interface LinkWithIconProps{
     className?: string
-    to?: string
+    to: string
     icon?: ReactElement
     text?: string
 }

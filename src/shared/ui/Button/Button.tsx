@@ -1,5 +1,5 @@
-import React, { ButtonHTMLAttributes, FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import React, { ButtonHTMLAttributes, memo } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonMode{
@@ -31,7 +31,7 @@ export const Button = memo((
     { className, children, size = ButtonSize.M, mode = ButtonMode.PRIMARY,
         theme = ButtonTheme.ACCENT, disabled, ...args }: ButtonProps,
 ) => {
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.disabled]: disabled,
     };
 

@@ -7,7 +7,7 @@ import { Navbar } from './Navbar';
 const meta = {
     title: 'widgets/navbar',
     component: Navbar,
-    decorators: [StoreDecorator({})],
+    decorators: StoreDecorator({ }),
 } satisfies Meta<typeof Navbar>;
 
 export default meta;
@@ -17,5 +17,16 @@ export const Light: Story = {};
 export const Dark: Story = {
     decorators: [
         ThemeDecorator(Theme.DARK),
+    ],
+};
+
+export const AuthLight: Story = {
+    decorators: [
+        StoreDecorator({ user: { authData: {} } }),
+    ],
+};
+export const AuthDark: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } }),
     ],
 };

@@ -64,6 +64,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
                     classNameBox={cls.input}
                 />
                 <Input
+                    fullWidth
                     placeholder="Пароль"
                     value={password}
                     onChange={onChangePassword}

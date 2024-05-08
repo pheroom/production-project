@@ -13,6 +13,7 @@ export enum ButtonMode{
 export enum ButtonTheme{
     ACCENT = 'accent',
     POSITIVE = 'positive',
+    NEGATIVE = 'negative',
 }
 
 export enum ButtonSize{

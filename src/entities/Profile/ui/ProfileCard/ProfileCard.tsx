@@ -1,28 +1,46 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useSelector } from 'react-redux';
 import CityIcon from 'shared/assets/icons/place.svg';
 import { Button, ButtonMode } from 'shared/ui/Button/Button';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './ProfileCard.module.scss';
+import { Profile } from '../../model/types/Profile';
 
 interface ProfileCardProps{
     className?: string
+    data?: Profile
+    isLoading?: boolean
+    error?: string
 }
 
-export const ProfileCard = memo(({ className }: ProfileCardProps) => {
-    const data = useSelector(getProfileData);
-    const isLoading = useSelector(getProfileIsLoading);
-    const error = useSelector(getProfileError);
+export const ProfileCard = memo(({ className, data, isLoading, error }: ProfileCardProps) => {
+    const navigator = useNavigate();
 
+    const onEdit = useCallback(() => {
+        navigator(RoutePath.edit_profile);
+    }, [navigator]);
+
+    if (error) {
+        return (
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.withError])}>
+                <Text theme={TextTheme.ERROR} title="Error" />
+            </div>
+        );
+    }
     if (isLoading || !data) {
-        return <div />;
+        return (
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.withLoader])}>
+                <Loader />
+            </div>
+        );
     }
     return (
         <div className={classNames(cls.ProfileCard, {}, [className])}>
-            {data?.avatar ? <img className={cls.avatar} src={data.avatar} alt="" /> : <div>ava not exist</div>}
+            <Avatar className={cls.avatar} size={150} src={data.avatar} />
             <div className={cls.main}>
                 <div className={cls.info}>
                     {/* eslint-disable-next-line no-unsafe-optional-chaining */}
@@ -34,7 +52,7 @@ export const ProfileCard = memo(({ className }: ProfileCardProps) => {
                     </div>
                 </div>
                 <div className={cls.actions}>
-                    <Button mode={ButtonMode.SECONDARY}>Редактировать профиль</Button>
+                    <Button onClick={onEdit} mode={ButtonMode.SECONDARY}>Редактировать профиль</Button>
                 </div>
             </div>
         </div>

@@ -1,0 +1,65 @@
+.EditProfilePage {
+    background: var(--bg-color-content);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    max-width: 550px;
+}
+
+.withLoader {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 16px;
+
+    //font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.avatarBox {
+    display: flex;
+    align-items: center;
+}
+
+.avatarBtn {
+    margin-left: 20px;
+
+    // color: var(--theme-color);
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.inputLine {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputBox {
+    margin-top: 15px;
+    flex-grow: 1;
+}
+
+.inputLabel {
+    color: #939393;
+    font-size: 13px;
+    margin-bottom: 4px;
+    justify-content: flex-end;
+}
+
+.lastnameInput {
+    margin-left: 10px;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

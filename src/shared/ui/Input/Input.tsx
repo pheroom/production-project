@@ -1,6 +1,11 @@
 import React, { FC, InputHTMLAttributes, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
+
+export enum InputSizeY{
+    REGULAR = 'regular',
+    COMPACT = 'compact',
+}
 
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>{
     className?: string
@@ -8,11 +13,14 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
     onChange?: (value: string) => void
     classNameBox?: string
     fullWidth?: boolean
+    sizeY?: InputSizeY
 }
 
-export const Input = memo((
-    { className, value, onChange, classNameBox, fullWidth = true, type = 'text', ...args }: InputProps,
-) => {
+export const Input = memo(({
+    className, value, onChange, classNameBox, fullWidth = false, type = 'text', sizeY = InputSizeY.REGULAR, ...args
+}: InputProps) => {
+    const mods: Mods = { [cls.fullWidth]: fullWidth };
+
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
@@ -23,7 +31,7 @@ export const Input = memo((
                 onChange={onChangeHandler}
                 value={value}
                 type={type}
-                className={classNames(cls.Input, { [cls.fullWidth]: fullWidth }, [className])}
+                className={classNames(cls.Input, mods, [className, cls[sizeY]])}
                 {...args}
             />
         </div>

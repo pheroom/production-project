@@ -7,6 +7,11 @@
     border-radius: 12px;
 }
 
+.withLoader {
+    justify-content: center;
+    height: 190px;
+}
+
 .main {
     margin-left: 16px;
     display: flex;
@@ -19,11 +24,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-}
-
-.avatar {
-    max-height: 150px;
-    border-radius: 50%;
+    max-width: 70%;
 }
 
 .name {
@@ -35,6 +36,7 @@
 .status {
     font-size: 13px;
     color: var(--theme-color);
+    max-width: 70%;
 }
 
 .cityBox {

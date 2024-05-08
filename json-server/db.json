@@ -1,26 +1,42 @@
 {
-    "posts": [
-        { "id": "1", "title": "a title", "views": 100 },
-        { "id": "2", "title": "another title", "views": 200 }
-    ],
-    "comments": [
-        { "id": "1", "text": "a comment about post 1", "postId": "1" },
-        { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-        "firstname": "yunxiao",
-        "lastname": "li",
-        "birthdate": "12.12.2002",
-        "city": "city",
-        "username":"gugu",
-        "avatar":"https://i.pinimg.com/originals/1b/0d/4b/1b0d4b0af4c5aa99abb76aaf5615c739.jpg",
-        "status": "status jfasj jfa"
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
     },
-    "users": [
-        {
-            "id": 1,
-            "username": "root",
-            "password": "zxc"
-        }
-    ]
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "firstname": "yunxiao",
+    "lastname": "li",
+    "birthdate": "12.12.2003",
+    "city": "city fdsa",
+    "username": "guu",
+    "avatar": "https://i.pinimg.com/originals/1b/0d/4b/1b0d4b0af4c5aa99abb76aaf5615c739.jpg",
+    "status": "dfasfparampampam44: MEGABOH))))"
+  },
+  "users": [
+    {
+      "id": 1,
+      "username": "root",
+      "password": "zxc"
+    }
+  ]
 }

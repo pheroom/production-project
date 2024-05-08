@@ -19,9 +19,6 @@ export const AccentLight: Story = {
         theme: ButtonTheme.ACCENT,
         children: 'text',
     },
-    parameters: {
-        layout: 'centered',
-    },
 };
 export const AccentDark: Story = {
     args: {

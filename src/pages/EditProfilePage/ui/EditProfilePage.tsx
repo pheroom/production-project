@@ -6,6 +6,7 @@ import {
     fetchProfileData,
     getProfileError,
     getProfileIsLoading,
+    getProfileValidateError,
     profileActions,
     profileReducer,
     updateProfileData,
@@ -36,9 +37,10 @@ const EditProfilePage: FC<EditProfilePageProps> = ({ className }) => {
     const data = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
+    const validateErrors = useSelector(getProfileValidateError);
 
     useEffect(() => {
-        if (!data) {
+        if (!data && __PROJECT__ !== 'storybook') {
             dispatch(fetchProfileData());
         }
     }, [dispatch, data]);
@@ -100,6 +102,13 @@ const EditProfilePage: FC<EditProfilePageProps> = ({ className }) => {
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.EditProfilePage, {}, [className])}>
                 <h1 className={cls.title}>Редактирование профиля</h1>
+                {validateErrors?.length
+                    ? (
+                        <div>
+                            {validateErrors.map((error) => <Text key={error} theme={TextTheme.ERROR} text={error} />)}
+                        </div>
+                    )
+                    : <></>}
                 <div className={cls.avatarBox}>
                     <Avatar src={data.avatar} size={92} />
                     <p className={cls.avatarBtn}>загрузить фото</p>

@@ -6,6 +6,7 @@ import { getProfileData } from './model/selectors/getProfileData/getProfileData'
 import { getProfileError } from './model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { updateProfileData } from './model/services/updateProfileData/updateProfileData';
+import { getProfileValidateError } from './model/selectors/getProfileValidateError/getProfileValidateError';
 
 export { Profile, ProfileSchema, profileActions, profileReducer, fetchProfileData, ProfileCard, getProfileError,
-    getProfileData, getProfileIsLoading, updateProfileData };
+    getProfileData, getProfileIsLoading, updateProfileData, getProfileValidateError };

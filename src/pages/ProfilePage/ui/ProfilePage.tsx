@@ -28,7 +28,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
 
     useEffect(() => {
-        if (!data) {
+        if (!data && __PROJECT__ !== 'storybook') {
             dispatch(fetchProfileData());
         }
         // dispatch(fetchProfileData());

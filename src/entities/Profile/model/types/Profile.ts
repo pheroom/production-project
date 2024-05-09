@@ -1,3 +1,5 @@
+import { ValidateProfileError } from '../services/validateProfileData/validateProfileData';
+
 export interface Profile{
     firstname?: string,
     lastname?: string,
@@ -13,4 +15,5 @@ export interface ProfileSchema{
     form?: Profile
     isLoading?: boolean
     error?: string
+    validateError?: ValidateProfileError[]
 }
